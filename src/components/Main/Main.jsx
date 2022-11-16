@@ -1,35 +1,46 @@
 import { useState } from 'react';
 import ItemList from '../ItemList/ItemList';
+import EventDetails from '../EventDetails/EventDetails';
 import './Main.css';
 
-let fakeData = [
-    {
-        item: "milk",
-        quantity: 2,
-        units: "gallons",
-        selected: false
+let fakeData = {
+    details: {
+        title: "Housewarming",
+        host: "Susan Saroza",
+        time: "November 23, 2022 at 8:00"
     },
-    {
-        item: "cups",
-        quantity: 20,
-        units: null,
-        selected: false
-    },
-    {
-        item: "forks",
-        quantity: 30,
-        units: null,
-        selected: true
-    },
-]
+    needed:
+        [
+            {
+                item: "milk",
+                quantity: 2,
+                units: "gallons",
+                selected: false
+            },
+            {
+                item: "cups",
+                quantity: 20,
+                units: null,
+                selected: false
+            },
+            {
+                item: "forks",
+                quantity: 30,
+                units: null,
+                selected: true
+            },
+        ]
+};
 
 const Main = () => {
 
-	const [data, setData] = useState(fakeData);
+
+    const [items, setItems] = useState(fakeData.needed);
 
     return (
         <div>
-            <ItemList items={data} setItems={setData}></ItemList>
+            <EventDetails details={fakeData.details}></EventDetails>
+            <ItemList items={items} setItems={setItems}></ItemList>
         </div>
     )
 }

@@ -1,0 +1,26 @@
+.event-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    margin: 20px 0px;
+    padding: 10px;
+
+    background-color: #7bb0d8;
+    border-radius: 16px;
+}
+
+h2 {
+    margin: 0px;
+    /*font-family: 'Paytone One', sans-serif;
+    letter-spacing: 1px;*/
+    font-size: 30px;
+
+    color: #ffe57c;
+}
+
+.event-wrapper > p {
+    font-size: 20px;
+    color: #ffe57c;
+    font-weight: 400;
+}

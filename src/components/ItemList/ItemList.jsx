@@ -21,10 +21,13 @@ const ItemList = ({ items, setItems }) => {
     console.log(items)
 
     return (
-        <div className="item-list">
-            {Object.entries(items).map(([id, data]) =>
-                <Item id={id} data={data} setSelect={setSelect} />
-            )}
+        <div className="item-wrapper">
+            <div className="item-list">
+                {Object.entries(items).map(([id, data]) =>
+                    <Item id={id} data={data} setSelect={setSelect} />
+                )}
+            </div>
+            <button className="save-button">Save Selections</button>
         </div>
     )
 }

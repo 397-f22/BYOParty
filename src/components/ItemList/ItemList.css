@@ -1,9 +1,28 @@
+.item-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+}
+
 .item-list {
-    padding-top: 20px;
-    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 
     gap: 16px;
+}
+
+.save-button {
+    font-family: 'Paytone One', sans-serif;
+    letter-spacing: 1px;
+
+    padding: 10px;
+    background-color: #1969a6;
+    color: #ace8f6;
+    border: dotted #ace8f6 8px;
+
+    font-size: 25px;
+    border-radius: 16px;
+    font-weight: 700;
 }
