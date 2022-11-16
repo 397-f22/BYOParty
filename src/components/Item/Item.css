@@ -1,0 +1,29 @@
+.item-card, .item-card-selected  {
+
+    width: fit-content;
+
+    text-align: center;
+    margin: 0px;
+    padding: 10px;
+    border-radius: 16px;
+
+    font-size: 20px;
+}
+
+.item-card {
+    border: #e14040 solid 2px;
+    background-color: #fff8de;
+    color: #e14040;
+}
+
+.item-card-selected {
+    
+    border: #fff8de solid 2px;
+    background-color: #e14040;
+    color: #fff8de;
+}
+
+/*
+    background-color: #bbd0e2;
+    color: #115589;
+*/

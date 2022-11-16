@@ -1,0 +1,18 @@
+.header-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 5px;
+    border-bottom: dotted #e14040 5px;
+}
+
+h1 {
+    color: #1969a6;
+    font-weight: 700;
+    /*font-family: 'Cabin Sketch', cursive;*/
+    margin: 0px;
+
+    font-size: 45px;
+}
