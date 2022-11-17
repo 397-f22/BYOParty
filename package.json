@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "bootstrap": "^5.2.2",
@@ -17,8 +18,21 @@
   "devDependencies": {
     "@testing-library/react": "^13.3.0",
     "@vitejs/plugin-react": "^2.0.0",
+    "cypress": "^11.1.0",
     "jsdom": "^20.0.0",
     "vite": "^3.0.3",
     "vitest": "^0.25.1"
-  }
+  },
+  "description": "A starter template for building React apps with Vite. Includes Vitest for unit testing and a hefty .gitignore file.",
+  "main": "cypress.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/397-f22/BYOParty.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/397-f22/BYOParty/issues"
+  },
+  "homepage": "https://github.com/397-f22/BYOParty#readme"
 }
