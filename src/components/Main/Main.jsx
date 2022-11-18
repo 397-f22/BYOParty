@@ -4,42 +4,44 @@ import EventDetails from '../EventDetails/EventDetails';
 import './Main.css';
 
 let fakeData = {
-    details: {
-        title: "Housewarming",
-        host: "Susan Saroza",
-        time: "November 23, 2022 at 8:00"
-    },
-    needed:
-        [
-            {
-                item: "milk",
-                quantity: 2,
-                units: "gallons",
-                selected: false
-            },
-            {
-                item: "cups",
-                quantity: 20,
-                units: null,
-                selected: false
-            },
-            {
-                item: "forks",
-                quantity: 30,
-                units: null,
-                selected: true
-            },
-        ]
+    "1234": {
+        details: {
+            title: "Housewarming",
+            host: "Susan Saroza",
+            time: "November 23, 2022 at 8:00"
+        },
+        needed:
+            [
+                {
+                    item: "milk",
+                    quantity: 2,
+                    units: "gallons",
+                    selected: false
+                },
+                {
+                    item: "cups",
+                    quantity: 20,
+                    units: null,
+                    selected: false
+                },
+                {
+                    item: "forks",
+                    quantity: 30,
+                    units: null,
+                    selected: true
+                },
+            ]
+    }
 };
 
-const Main = () => {
+const Main = ({eventId}) => {
 
-
-    const [items, setItems] = useState(fakeData.needed);
+    const fakeEvent = fakeData[eventId];
+    const [items, setItems] = useState(fakeEvent.needed);
 
     return (
         <div>
-            <EventDetails details={fakeData.details}></EventDetails>
+            <EventDetails details={fakeEvent.details}></EventDetails>
             <ItemList items={items} setItems={setItems}></ItemList>
         </div>
     )
