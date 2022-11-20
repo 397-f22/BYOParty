@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ItemList from '../ItemList/ItemList';
 import EventDetails from '../EventDetails/EventDetails';
 import './Main.css';
+import { uId } from '../../App';
 
 let fakeData = {
     details: {
@@ -27,7 +28,7 @@ let fakeData = {
                 item: "forks",
                 quantity: 30,
                 units: null,
-                selected: true
+                selected: 123
             },
         ]
 };
