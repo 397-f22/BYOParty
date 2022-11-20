@@ -6,11 +6,12 @@ import Header from './components/Header/Header';
 
 export const uId = 123;
 const App = () => {
+  const [eventId, setEventId] = useState("1234");
 
   return (
     <div className="App">
       <Header></Header>
-      <Main></Main>
+      <Main eventId={eventId}></Main>
     </div>
   );
 };
