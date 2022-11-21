@@ -3,6 +3,8 @@ import './App.css';
 
 import Main from './components/Main/Main';
 import Header from './components/Header/Header';
+import Dispatcher from './components/Dispatcher';
+import Footer from './components/Footer/Footer';
 
 export const uId = 123;
 const App = () => {
@@ -11,7 +13,8 @@ const App = () => {
   return (
     <div className="App">
       <Header></Header>
-      <Main eventId={eventId}></Main>
+      <Dispatcher></Dispatcher>
+      <Footer></Footer>
     </div>
   );
 };

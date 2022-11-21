@@ -16,22 +16,3 @@ h1 {
 
     font-size: 45px;
 }
-
-.btn {
-    width: fit-content;
-    text-align: center;
-    margin: 0px;
-    padding: 10px;
-    border-radius: 16px;
-    font-size: 15px;
-    margin-right: 8px;
-    border: none;
-}
-.btn-add {
-    background-color: #50C878;
-    color: white;
-}
-.btn-join {
-    background-color: orange;
-    color: white;
-}

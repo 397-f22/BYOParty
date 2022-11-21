@@ -1,6 +1,7 @@
 .modal {
     display: block;
     visibility: hidden;
+    width: 100vw;
   }
   
   .modal-show {
