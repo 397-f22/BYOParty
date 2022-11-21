@@ -6,7 +6,7 @@
     margin: 20px 0px;
     padding: 10px;
 
-    background-color: #7bb0d8;
+    background-color: #1969a6;
     border-radius: 16px;
 }
 
@@ -16,11 +16,11 @@ h2 {
     letter-spacing: 1px;*/
     font-size: 30px;
 
-    color: #ffe57c;
+    color: #ace8f6;
 }
 
 .event-wrapper > p {
     font-size: 20px;
-    color: #ffe57c;
+    color: #ace8f6;
     font-weight: 400;
 }

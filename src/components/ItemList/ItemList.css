@@ -63,16 +63,15 @@
 
 .save-button {
     font-family: 'Paytone One', sans-serif;
-    letter-spacing: 1px;
+    font-size: 30px;
 
     padding: 10px;
     background-color: #1969a6;
     color: #ace8f6;
-    border: dotted #ace8f6 8px;
+    border: none;
 
     font-size: 25px;
     border-radius: 16px;
-    font-weight: 700;
 }
 
 h5 {
