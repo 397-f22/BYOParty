@@ -4,7 +4,7 @@ import './App.css';
 import Main from './components/Main/Main';
 import Header from './components/Header/Header';
 
-export const uId = 123;
+export const uId = 1234;
 const App = () => {
   const [eventId, setEventId] = useState("1234");
 
