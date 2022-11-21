@@ -51,7 +51,7 @@ const ItemList = ({ items, setItems }) => {
                     <input type="checkbox" id="my-list" name="my-list" onClick={() => filterItems(items)}/>
                     <label for="my-list"></label>
                 </div>
-                <h5>Only Show What I'm Bring</h5>
+                <h5>Only Show What I'm Bringing</h5>
             </div>
             <div className="item-list">
                 <ItemDisplay />
