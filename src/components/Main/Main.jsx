@@ -1,51 +1,23 @@
 import { useState } from 'react';
 import ItemList from '../ItemList/ItemList';
 import EventDetails from '../EventDetails/EventDetails';
+import { useDbData } from '../../utilities/firebase';
 import './Main.css';
 import { uId } from '../../App';
 
-let fakeData = {
-    "1234": {
-        details: {
-            title: "Housewarming",
-            host: "Susan Saroza",
-            time: "November 23, 2022 at 8:00"
-        },
-        needed:
-            [
-                {
-                    item: "milk",
-                    quantity: 2,
-                    units: "gallons",
-                    selected: false
-                },
-                {
-                    item: "cups",
-                    quantity: 20,
-                    units: null,
-                    selected: false
-                },
-                {
-                    item: "forks",
-                    quantity: 30,
-                    units: null,
-                    selected: false
-                },
-            ]
-    }
-};
-
 const Main = ({eventId}) => {
+    const [data, error] = useDbData("/" + eventId);
 
-    const fakeEvent = fakeData[eventId];
-    const [items, setItems] = useState(fakeEvent.needed);
-
+    if (error) return <h1>Error loading data: {error.toString()}</h1>;
+	if (data === undefined) return <h1>Loading data...</h1>;
+	if (!data) return <h1>No data found</h1>;
+        
     return (
         <div>
-            <EventDetails details={fakeEvent.details}></EventDetails>
-            <ItemList items={items} setItems={setItems}></ItemList>
+            <EventDetails details={data.details}></EventDetails>
+            <ItemList initItems={data.needed} ></ItemList>
         </div>
-    )
+    )    
 }
 
 export default Main;

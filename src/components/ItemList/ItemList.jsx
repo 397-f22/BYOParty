@@ -3,7 +3,8 @@ import './ItemList.css';
 import Item from '../Item/Item';
 import { uId } from '../../App';
 
-const ItemList = ({ items, setItems }) => {
+const ItemList = ({ initItems }) => {
+    const [items, setItems] = useState(initItems);
     const [displayItems, setDisplayItems] = useState(items)
 
     const setSelect = (id) => {
