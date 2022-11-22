@@ -1,31 +1,42 @@
 {
-    "1234": {
-        "details": {
-            "title": "Housewarming",
-            "host": "Susan Saroza",
-            "time": "November 23, 2022 at 8:00"
+    "events": {
+        "1234": {
+            "hostId": 1,
+            "details": {
+                "title": "Housewarming",
+                "host": "Susan Saroza",
+                "time": "November 23, 2022 at 8:00"
+            },
+            "needed":
+                [
+                    {
+                        
+                        "item": "milk",
+                        "quantity": 2,
+                        "units": "gallons",
+                        "selected": false
+                    },
+                    {
+                        "item": "cups",
+                        "quantity": 20,
+                        "units": null,
+                        "selected": false
+                    },
+                    {
+                        "item": "forks",
+                        "quantity": 30,
+                        "units": null,
+                        "selected": false
+                    }
+                ]
+        }
+    },
+    "users": {
+        "1": {
+            "eventsAttended": [1234]
         },
-        "needed":
-            [
-                {
-                    
-                    "item": "milk",
-                    "quantity": 2,
-                    "units": "gallons",
-                    "selected": false
-                },
-                {
-                    "item": "cups",
-                    "quantity": 20,
-                    "units": null,
-                    "selected": false
-                },
-                {
-                    "item": "forks",
-                    "quantity": 30,
-                    "units": null,
-                    "selected": false
-                }
-            ]
+        "2": {
+            "eventsAttended": [5678]
+        }
     }
 }
