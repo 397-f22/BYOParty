@@ -26,7 +26,7 @@ const Main = ({eventId}) => {
         <div>
             <EventDetails details={data.details}></EventDetails>
             <ItemList initItems={data.needed}  ></ItemList>
-            { data.hostId.toString() === uid ? <AddItems /> : null }
+            { data.hostId.toString() === uid ? <AddItems eventId={eventId}/> : null }
         </div>
     )    
 }
