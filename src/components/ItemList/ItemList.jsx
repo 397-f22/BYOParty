@@ -8,20 +8,20 @@ const ItemList = ({ initItems }) => {
     const [displayItems, setDisplayItems] = useState(items)
 
     const setSelect = (id) => {
-        const newState = items.map((obj, num) => {
+        console.log(items)
+        const newState = Object.fromEntries(Object.entries(items).map(([key, obj], num) => {
             if (num == id) {
-                return { ...obj, selected: obj.selected==false? uId: false  };
+                return [ key, {...obj, selected: obj.selected==false? uId: false}  ];
             }
-
-            return obj;
-        });
+            return [key, obj];
+        }))
         setItems(newState);
         filterItems(newState);
     }
 
     const filterItems = (itemList) =>{
         if (document.getElementById("my-list").checked){
-            const newState = itemList.filter(obj => obj.selected === uId);
+            const newState = Object.fromEntries(Object.entries(itemList).filter(([_, obj]) => obj.selected === uId));
             setDisplayItems(newState)
         }
         else{
@@ -29,10 +29,10 @@ const ItemList = ({ initItems }) => {
         }
     }
     const ItemDisplay = () => {
-        if (displayItems.length > 0) {
+        if (Object.keys(displayItems).length > 0) {
             return(
-                Object.entries(displayItems).map(([id, data]) =>
-                    <Item id={id} data={data} setSelect={setSelect} />
+                Object.entries(displayItems).map(([key, data], i) =>
+                    <Item name={key} id={i} data={data} setSelect={setSelect} />
                 )
             )
         }
