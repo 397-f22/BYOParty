@@ -4,22 +4,22 @@ import MainJoin from "./Main/MainJoin";
 import MainHost from "./Main/MainHost";
 
 
-const JoinUrl = () => {
+const JoinUrl = ({user}) => {
   const { id } = useParams();
-  return <MainJoin eventId={id} />;
+  return <MainJoin eventId={id} user={user}/>;
 };
 
-const HostUrl = () => {
+const HostUrl = ({user}) => {
   const { id } = useParams();
-  return <MainHost eventId={id} />;
+  return <MainHost eventId={id} user={user}/>;
 };
 
-const Dispatcher = () => (
+const Dispatcher = ({user}) => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="join/:id/" element={<JoinUrl />} />
-      <Route path="host/:id/" element={<HostUrl />} />
+      <Route path="/" element={<Home user={user}/>} />
+      <Route path="join/:id/" element={<JoinUrl user={user}/>} />
+      <Route path="host/:id/" element={<HostUrl user={user}/>} />
     </Routes>
   </BrowserRouter>
 );

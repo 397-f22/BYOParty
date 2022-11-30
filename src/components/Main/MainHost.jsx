@@ -2,25 +2,20 @@ import { useState } from 'react';
 import EventDetails from '../EventDetails/EventDetails';
 import AddItems from '../AddItems/AddItems';
 import { useDbData } from '../../utilities/firebase';
-import { useAuthState } from "../../utilities/firebase";
 import './Main.css';
 
-const MainHost = ({eventId}) => {
-    const [user] = useAuthState();
-    const uid = user?.uid ? user.uid : "1";
+const MainHost = ({eventId, user}) => {
+    if(!user) { return <h3>Please sign in!</h3>}
+    let uid = user.uid;
 
-    const [userData, userError] = useDbData(`/users/${uid}`);
     const [data, error] = useDbData("/events/" + eventId);
 
-    if (userError) return <h1>Error loading data: {error.toString()}</h1>;
-	if (userData === undefined) return <h1>Loading data...</h1>;
-	if (!userData) return <h1>No data found</h1>;
+    if (error) return <h3>Error loading data: {error.toString()}</h3>;
+	if (data === undefined) return <h3>Loading data...</h3>;
+	if (!data) return <h3>No data found</h3>;
 
-    if (error) return <h1>Error loading data: {error.toString()}</h1>;
-	if (data === undefined) return <h1>Loading data...</h1>;
-	if (!data) return <h1>No data found</h1>;
-
-    return data.hostId.toString() === uid ? 
+    console.log(data);
+    return data.details.hostId.toString() === uid ? 
     (
         <div>
             <EventDetails details={data.details}></EventDetails>

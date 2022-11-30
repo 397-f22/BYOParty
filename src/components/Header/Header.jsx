@@ -21,13 +21,13 @@ const SignOutButton = () => (
     </button>
 );
 
-const AuthButton = () => {
-    const [user] = useAuthState();
+const AuthButton = ({user}) => {
+    //console.log(user);
     return user ? <SignOutButton /> : <SignInButton />;
 };
 
 
-const Header = () => {
+const Header = ({user}) => {
 
     return (
         <div className='header-wrapper'>
@@ -35,7 +35,7 @@ const Header = () => {
                 <h1>BYOParty!</h1>
             </div>
             <nav className="d-flex">
-                <AuthButton />
+                <AuthButton user={user}/>
             </nav>
         </div>
     )

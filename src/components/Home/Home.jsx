@@ -5,7 +5,7 @@ import JoinEventForm from '../JoinEventForm/JoinEventForm';
 
 import './Home.css';
 
-const Home = () => {
+const Home = ({user}) => {
     
     const [open, setOpen] = useState(false);
     const openModal = () => setOpen(true);

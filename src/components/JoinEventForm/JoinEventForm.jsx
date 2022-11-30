@@ -1,5 +1,6 @@
 import "./JoinEventForm.css";
 import {Routes, Route, useNavigate} from 'react-router-dom';
+import { useAuthState } from '../../utilities/firebase';
 
 
 const cb = (e, navigate) => {
@@ -11,6 +12,7 @@ const cb = (e, navigate) => {
 };
 
 const JoinEventForm = ({events, setEvents}) => {
+    const [user] = useAuthState();
     const navigate = useNavigate();
 
     return (

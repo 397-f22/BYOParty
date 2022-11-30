@@ -1,16 +1,17 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useDbUpdate } from '../../utilities/firebase';
+import { useDbUpdate, useAuthState } from '../../utilities/firebase';
 
 
-const cb = (e, update, navigate) => {
+const cb = (e, update, navigate, user) => {
     e.preventDefault();
 
     let title = document.getElementById('eventTitle').value;
     let host = document.getElementById('eventHost').value;
     let time = document.getElementById('eventTime').value;
 
-    let eventcode = 1234;
-    let uid = 1;
+    let eventcode = ("000" + (Math.random() * 9999)).slice(-4);
+
+    console.log(eventcode);
 
     var newEvent = {
         [eventcode]: {
@@ -19,7 +20,7 @@ const cb = (e, update, navigate) => {
                 time: time,
                 title: title
             },
-            hostId: uid
+            hostId: user.uid
         }
     }
     update(newEvent)
@@ -28,6 +29,7 @@ const cb = (e, update, navigate) => {
 };
 
 function AddEventModal() {
+    const [user] = useAuthState();
     const navigate = useNavigate();
     const [update, result] = useDbUpdate(`/events/`);
 
@@ -46,7 +48,7 @@ function AddEventModal() {
                 <label htmlFor="eventTime">Time</label>
                 <input type="datetime-local" className="form-control" id="eventTime" placeholder="Enter time" />
             </div>
-            <button className="btn btn-primary" onClick={e => cb(e, update, navigate)}>Submit</button>
+            <button className="btn btn-primary" onClick={e => cb(e, update, navigate, user)}>Submit</button>
         </form>
     )
 }

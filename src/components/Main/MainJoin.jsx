@@ -6,8 +6,7 @@ import { useDbData } from '../../utilities/firebase';
 import { useAuthState } from "../../utilities/firebase";
 import './Main.css';
 
-const MainJoin = ({eventId}) => {
-    const [user] = useAuthState();
+const MainJoin = ({eventId, user}) => {
     const uid = user?.uid ? user.uid : "1";
 
     const [userData, userError] = useDbData(`/users/${uid}`);
