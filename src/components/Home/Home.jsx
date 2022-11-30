@@ -14,16 +14,13 @@ const Home = ({user}) => {
     const closeModal = () => setOpen(false);
 
     const [popJoin, setPopJoin] = useState(false);
-
-    if(!user) { return <h3>Please sign in!</h3>}
-    const uid = user.uid;
+    const uid = user?.uid ? user.uid : "1";
     // right now assuming user already logged in
     const [userData, userError] = useDbData(`/users/${uid}`);
     const [data, error] = useDbData("/events/");
 
     if (userError) return <h1>Error loading data: {error.toString()}</h1>;
 	if (userData === undefined) return <h1>Loading data...</h1>;
-	if (!userData) return <h1>No data found</h1>;
 
     if (error) return <h1>Error loading data: {error.toString()}</h1>;
 	if (data === undefined) return <h1>Loading data...</h1>;
@@ -47,7 +44,7 @@ const Home = ({user}) => {
                 <JoinEventForm events={[]} setEvents={() => 0} />
             </Modal>
 
-            <EventList uid={uid} userData={userData} data={data} />
+            {userData? <EventList uid={uid} userData={userData} data={data} /> : ""}
         </div>
     )
 }
