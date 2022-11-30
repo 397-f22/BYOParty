@@ -14,8 +14,9 @@ const Home = ({user}) => {
     const closeModal = () => setOpen(false);
 
     const [popJoin, setPopJoin] = useState(false);
-    const [user] = useAuthState();
-    const uid = user?.uid ? user.uid : "1";
+
+    if(!user) { return <h3>Please sign in!</h3>}
+    const uid = user.uid;
     // right now assuming user already logged in
     const [userData, userError] = useDbData(`/users/${uid}`);
     const [data, error] = useDbData("/events/");
