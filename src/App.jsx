@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './App.css';
 
-import Main from './components/Main/Main';
 import Header from './components/Header/Header';
 import Dispatcher from './components/Dispatcher';
 import Footer from './components/Footer/Footer';

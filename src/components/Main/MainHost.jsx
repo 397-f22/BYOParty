@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import ItemList from '../ItemList/ItemList';
 import EventDetails from '../EventDetails/EventDetails';
 import AddItems from '../AddItems/AddItems';
 import { useDbData } from '../../utilities/firebase';
 import { useAuthState } from "../../utilities/firebase";
 import './Main.css';
 
-const Main = ({eventId}) => {
+const MainHost = ({eventId}) => {
     const [user] = useAuthState();
     const uid = user?.uid ? user.uid : "1";
 
@@ -21,14 +20,16 @@ const Main = ({eventId}) => {
 	if (data === undefined) return <h1>Loading data...</h1>;
 	if (!data) return <h1>No data found</h1>;
 
-
-    return (
+    return data.hostId.toString() === uid ? 
+    (
         <div>
             <EventDetails details={data.details}></EventDetails>
-            <ItemList initItems={data.needed}  ></ItemList>
-            { data.hostId.toString() === uid ? <AddItems eventId={eventId}/> : null }
+            <AddItems eventId={eventId}/>
         </div>
     )    
+    : (
+        <h3>Sorry! You're not the host of this event!</h3>
+    )
 }
 
-export default Main;
+export default MainHost;
