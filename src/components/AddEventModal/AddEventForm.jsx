@@ -18,9 +18,9 @@ const cb = (e, update, navigate, user) => {
             details: {
                 host: host,
                 time: time,
-                title: title
+                title: title,
+                hostId: user.uid
             },
-            hostId: user.uid
         }
     }
     update(newEvent)

@@ -7,14 +7,10 @@ import { useAuthState } from "../../utilities/firebase";
 import './Main.css';
 
 const MainJoin = ({eventId, user}) => {
-    const uid = user?.uid ? user.uid : "1";
+    if(!user) { return <h3>Please sign in!</h3>}
+    let uid = user.uid;
 
-    const [userData, userError] = useDbData(`/users/${uid}`);
     const [data, error] = useDbData("/events/" + eventId);
-
-    if (userError) return <h1>Error loading data: {error.toString()}</h1>;
-	if (userData === undefined) return <h1>Loading data...</h1>;
-	if (!userData) return <h1>No data found</h1>;
 
     if (error) return <h1>Error loading data: {error.toString()}</h1>;
 	if (data === undefined) return <h1>Loading data...</h1>;
@@ -25,7 +21,7 @@ const MainJoin = ({eventId, user}) => {
         <div>
             <EventDetails details={data.details}></EventDetails>
             <ItemList initItems={data.needed}  ></ItemList>
-            { data.hostId.toString() === uid ? <AddItems eventId={eventId}/> : null }
+            { data.details.hostId.toString() === uid ?  <AddItems eventId={eventId}/> : null }
         </div>
     )    
 }
