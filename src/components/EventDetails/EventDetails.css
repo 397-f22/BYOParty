@@ -24,3 +24,20 @@ h2 {
     color: #ace8f6;
     font-weight: 400;
 }
+
+.event-wrapper-host > p {
+    font-size: 20px;
+    color: #ace8f6;
+    font-weight: 400;
+}
+.event-wrapper-host {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    margin: 20px 0px;
+    padding: 10px;
+
+    background-color: purple;
+    border-radius: 16px;
+}
