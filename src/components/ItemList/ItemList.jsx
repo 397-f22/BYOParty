@@ -2,16 +2,17 @@ import { useState } from 'react';
 import './ItemList.css';
 import Item from '../Item/Item';
 import { uId } from '../../App';
+import { useDbUpdate } from '../../utilities/firebase';
 
-const ItemList = ({ initItems }) => {
+const ItemList = ({ initItems, user }) => {
     const [items, setItems] = useState(initItems);
     const [displayItems, setDisplayItems] = useState(items)
 
     const setSelect = (id) => {
-        console.log(items)
+        //console.log(items)
         const newState = Object.fromEntries(Object.entries(items).map(([key, obj], num) => {
             if (num == id) {
-                return [ key, {...obj, selected: obj.selected==false? uId: false}  ];
+                return [ key, {...obj, selected: obj.selected==false? user.uid: false}  ];
             }
             return [key, obj];
         }))
@@ -21,7 +22,7 @@ const ItemList = ({ initItems }) => {
 
     const filterItems = (itemList) =>{
         if (document.getElementById("my-list").checked){
-            const newState = Object.fromEntries(Object.entries(itemList).filter(([_, obj]) => obj.selected === uId));
+            const newState = Object.fromEntries(Object.entries(itemList).filter(([_, obj]) => obj.selected === user.uid));
             setDisplayItems(newState)
         }
         else{
@@ -32,9 +33,10 @@ const ItemList = ({ initItems }) => {
         if (Object.keys(displayItems).length > 0) {
             return(
                 Object.entries(displayItems).map(([key, data], i) =>
-                    <Item name={key} id={i} data={data} setSelect={setSelect} />
+                    <Item name={key} id={i} data={data} setSelect={setSelect} user={user}/>
                 )
             )
+            // add that only if setSelect == false we should display it 
         }
         else{
             return(
@@ -44,7 +46,13 @@ const ItemList = ({ initItems }) => {
             )
         }
     }
-
+    const SaveSelection = () =>{
+        const selections = Object.fromEntries(Object.entries(items).filter(([_, obj]) => obj.selected === user.uid));
+        Object.entries(selections).map(([key, data], i) => console.log (key))
+        console.log(items)
+        console.log(user.uid)
+        //useDbUpdate(`/events/${eventId}/needed`);
+    }
     return (
         <div className="item-wrapper">
             <div className="checkbox-div">
@@ -57,7 +65,7 @@ const ItemList = ({ initItems }) => {
             <div className="item-list">
                 <ItemDisplay />
             </div>
-            <button className="save-button">Save Selections</button>
+            <button className="save-button" onClick={() => SaveSelection()}>Save Selections</button>
         </div>
     )
 }

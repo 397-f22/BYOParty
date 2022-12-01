@@ -36,7 +36,7 @@ const AuthButton = ({user}) => {
 
 
 const Header = ({user}) => {
-
+    
     return (
         <div className='header-wrapper'>
             <div>
