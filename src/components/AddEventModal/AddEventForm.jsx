@@ -2,36 +2,44 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useDbUpdate, useAuthState } from '../../utilities/firebase';
 
 
-const cb = (e, update, navigate, user) => {
-    e.preventDefault();
-
-    let title = document.getElementById('eventTitle').value;
-    let host = document.getElementById('eventHost').value;
-    let time = document.getElementById('eventTime').value;
-
-    let eventcode = ("000" + (Math.random() * 9999)).slice(-4);
-
-    console.log(eventcode);
-
-    var newEvent = {
-        [eventcode]: {
-            details: {
-                host: host,
-                time: time,
-                title: title,
-                hostId: user.uid
-            },
-        }
-    }
-    update(newEvent)
-
-    navigate(`host/${eventcode}/`);
-};
-
 function AddEventModal() {
     const [user] = useAuthState();
     const navigate = useNavigate();
     const [update, result] = useDbUpdate(`/events/`);
+    const uid = user?.uid ? user.uid : "1";
+    const [eventUpdate, eventResult] = useDbUpdate(`/users/${uid}/eventsAttended`);
+
+
+    const cb = (e, update, navigate, user) => {
+        e.preventDefault();
+    
+        let title = document.getElementById('eventTitle').value;
+        let host = document.getElementById('eventHost').value;
+        let time = document.getElementById('eventTime').value;
+    
+        let eventcode = ("000" + (Math.random() * 9999)).slice(-4);
+    
+        console.log(eventcode);
+    
+        var newEvent = {
+            [eventcode]: {
+                details: {
+                    host: host,
+                    time: time,
+                    title: title,
+                    hostId: user.uid
+                },
+            }
+        }
+        update(newEvent)
+    
+        var newEvent = {
+            [eventcode] : true
+          }
+        eventUpdate(newEvent);
+    
+        navigate(`host/${eventcode}/`);
+    };
 
     return (
         <form>
