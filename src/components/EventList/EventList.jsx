@@ -6,7 +6,7 @@ const EventList = ({uid, userData, data}) => {
             {Object.entries(userData.eventsAttended).map(([eventId, val]) => 
                 <nav>
                     
-                    <a href={data[eventId].details.hostId == uid? `/host/${eventId}`: `/join/${eventId}`}>
+                    <a href={data[eventId].details.hostId == uid? `/host/${eventId}`: `/join/${eventId}`} className=" text-decoration-none">
                         <EventDetails details={data[eventId].details} />
                     </a>
                 </nav>)}

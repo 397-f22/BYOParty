@@ -41,3 +41,19 @@ h2 {
     background-color: purple;
     border-radius: 16px;
 }
+
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }

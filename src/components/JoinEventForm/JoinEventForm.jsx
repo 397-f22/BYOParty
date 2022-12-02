@@ -10,7 +10,7 @@ const cb = (e, navigate, update) => {
     [document.getElementById('eventId').value] : true
   }
   update(newEvent);
-  navigate(`join/${document.getElementById('eventId').value}/`);
+  navigate(`/join/${document.getElementById('eventId').value}/`);
 };
 
 const JoinEventForm = ({events, setEvents}) => {
