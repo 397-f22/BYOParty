@@ -8,6 +8,7 @@ function AddEventModal() {
     const [update, result] = useDbUpdate(`/events/`);
     const uid = user?.uid ? user.uid : "1";
     const [eventUpdate, eventResult] = useDbUpdate(`/users/${uid}/eventsAttended`);
+    let eventcode = ("000" + (Math.random() * 9999)).slice(-4);
 
 
     const cb = (e, update, navigate, user) => {
@@ -16,10 +17,7 @@ function AddEventModal() {
         let title = document.getElementById('eventTitle').value;
         let host = document.getElementById('eventHost').value;
         let time = document.getElementById('eventTime').value;
-    
-        let eventcode = ("000" + (Math.random() * 9999)).slice(-4);
-    
-        console.log(eventcode);
+
     
         var newEvent = {
             [eventcode]: {
@@ -43,7 +41,7 @@ function AddEventModal() {
 
     return (
         <form>
-            <h1>Add Event</h1>
+            <h1>Add Event: {eventcode}</h1>
             <div className="form-group">
                 <label htmlFor="eventTitle">Title</label>
                 <input type="text" className="form-control" id="eventTitle" placeholder="Enter title" />
