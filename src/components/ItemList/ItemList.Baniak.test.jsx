@@ -73,7 +73,12 @@ describe('ItemList', () => {
     expect(exItem.className).toBe("item-card");
     await fireEvent.click(exItem);
 
-    expect(screen.getByTestId("item-button-milk").className).toBe("item-card-selected")
+    exItem = await screen.getByTestId("item-button-milk");
+    expect(exItem.className).toBe("item-card-selected")
+    await fireEvent.click(exItem);
+
+    exItem = await screen.getByTestId("item-button-milk");
+    expect(exItem.className).toBe("item-card");
 
   });
 });
