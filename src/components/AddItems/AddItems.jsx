@@ -7,6 +7,7 @@ const AddItems = ({eventId}) => {
     const [item, setItem] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [unit, setUnit] = useState("");
+    const [validData, setValidData] = useState('');
 
     const onChangeItem = (e) => {
         setItem(e.target.value);
@@ -20,6 +21,13 @@ const AddItems = ({eventId}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        if (quantity == "" || unit == "" || item == "") {
+            setValidData("data not valid");
+            return;
+        }
+        else{
+            setValidData("valid");
+        }
         var newItem = {
             [item] : {
                 quantity: quantity,
@@ -36,15 +44,16 @@ const AddItems = ({eventId}) => {
             <h1>Add Items</h1>
             <form className="form">
                 <div className="form-group">
-                    <input type="text" className="form-control" id="Item name" onChange={onChangeItem} placeholder="Enter item name" />
+                    <input aria-label="item-name" type="text" className="form-control" id="Item name" onChange={onChangeItem} placeholder="Enter item name" />
                 </div>
                 <div className="form-group">
-                    <input type="text" className="form-control" id="Unit" onChange={onChangeUnit} placeholder="Enter unit" />
+                    <input aria-label="unit" type="text" className="form-control" id="Unit" onChange={onChangeUnit} placeholder="Enter unit" />
                 </div>
                 <div className="form-group">
-                    <input type="number" className="form-control" id="Quantity" onChange={onChangeQuantity} placeholder="Enter quantity" />
+                    <input aria-label="quantity" type="number" className="form-control" id="Quantity" onChange={onChangeQuantity} placeholder="Enter quantity" />
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={onSubmit}>Submit</button>
+                <button type="submit" className="btn btn-primary" data-testid="submit-button" onClick={onSubmit}>Submit</button>
+                <div>{validData}</div>
             </form>
         </div>
     )

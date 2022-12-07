@@ -9,53 +9,79 @@ const EventDetails = ({ details, eventId, needed, home }) => {
     const [user] = useAuthState();
     const uid = user?.uid ? user.uid : "1";
     const [openModal, setOpenModal] = useState(false)
+    
 
     const EditEventModal = ({ setOpenModal, details }) => {
         const navigate = useNavigate();
         const [update, result] = useDbUpdate(`/events/${eventId}`);
-        const uid = user?.uid ? user.uid : "1";
+        const [eventTitle, setTitle] = useState("")
+        const [host, setHost] = useState("")
+        const [time, setTime] = useState(details.time)
+        const [error, setError] = useState(false);
 
-        const cb = (e, update, navigate, user, close) => {
+        const cb = (e, update) => {
             e.preventDefault();
 
-            let title = document.getElementById('eventTitle').value;
-            let host = document.getElementById('eventHost').value;
-            let time = document.getElementById('eventTime').value;
-
-            var newEvent = {
-                details: {
-                    host: host,
-                    time: time,
-                    title: title,
-                    hostId: user.uid
-                },
-
+            // let title = document.getElementById('eventTitle').value;
+            // let host = document.getElementById('eventHost').value;
+            // let time = document.getElementById('eventTime').value;
+            console.log(host == "")
+            console.log(eventTitle == "")
+            if(eventTitle == "" || host == ""){
+                setError(true)
             }
-            update(newEvent)
-            setOpenModal(false)
+            else{
+                setError(false)
+                var newEvent = {
+                    details: {
+                        host: host,
+                        time: time,
+                        title: eventTitle,
+                        hostId: uid
+                    },
+    
+                }
+                update(newEvent)
+                setOpenModal(false)
+            }            
         };
+
+        function handleChangeTitle(event) {
+            console.log(event.target.value);
+            setTitle(event.target.value)
+        }
+        function handleChangeHost(event) {
+            console.log(event.target.value);
+            setHost(event.target.value)
+        }
+        function handleChangeTime(event) {
+            console.log(event.target.value);
+            setTime(event.target.value)
+        }
+
+
 
         return (
             <form>
                 <h1>Edit Event</h1>
+                {error ?  <span className='error'>Error in input</span>: null}
                 <div className="form-group">
                     <label htmlFor="eventTitle">Title</label>
-                    <input role="eventTitle" aria-label="title-info" type="text" className="form-control" data-testid="eventTitle" id="eventTitle" placeholder={details.title} />
+                    <input onChange={handleChangeTitle} value={eventTitle} role="eventTitle" aria-label="title-info" type="text" className="form-control" data-testid="eventTitle" id="eventTitle" placeholder={details.title} />  
                 </div>
                 <div className="form-group">
                     <label htmlFor="eventHost">Host</label>
-                    <input type="text" className="form-control" id="eventHost" placeholder={details.host} />
+                    <input onChange={handleChangeHost} value={host} aria-label="host-info" type="text" className="form-control" id="eventHost" placeholder={details.host} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="eventTime">Time</label>
-                    <input type="datetime-local" className="form-control" id="eventTime" placeholder={details.time} />
+                    <input onChange={handleChangeTime} value={time} type="datetime-local" className="form-control" id="eventTime" placeholder={details.time} />
                 </div>
-                <button data-testid="submit-button" className="btn btn-primary" onClick={e => cb(e, update, navigate, user)}>Submit</button>
+                <button data-testid="submit-button" className="btn btn-primary" onClick={e => cb(e, update)}>Submit</button>
             </form>
         )
     }
     let date = new Date(details.time)
-    // console.log(date.toUTCString());
     date = new Date(date.toISOString())
 
     return (
