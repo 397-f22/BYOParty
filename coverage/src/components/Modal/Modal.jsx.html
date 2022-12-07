@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/27</span>
+                <span class='fraction'>27/27</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">50% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>1/2</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">50% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/27</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -95,24 +95,24 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -121,25 +121,25 @@
 &nbsp;
 // https://codebuckets.com/2021/08/08/bootstrap-modal-dialog-in-react-without-jquery/
 &nbsp;
-const Modal = (<span class="fstat-no" title="function not covered" >{ children, open, close }) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >  &lt;div</span>
-<span class="cstat-no" title="statement not covered" >    className={`modal ${open ? 'modal-show' : ''}`}</span>
-<span class="cstat-no" title="statement not covered" >    tabIndex="-1"</span>
-<span class="cstat-no" title="statement not covered" >    role="dialog"</span>
-<span class="cstat-no" title="statement not covered" >    onClick={(evt) =&gt; { if (evt.target === evt.currentTarget) close(); }}</span>
-<span class="cstat-no" title="statement not covered" >  &gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div className="modal-dialog" role="document"&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className="modal-content"&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className="modal-header"&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;button type="button" className="btn-close" aria-label="Close"</span>
-<span class="cstat-no" title="statement not covered" >            onClick={close}</span>
-<span class="cstat-no" title="statement not covered" >          /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className="modal-body"&gt;</span>
-<span class="cstat-no" title="statement not covered" >          {children}</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
+const Modal = ({ children, open, close }) =&gt; (
+  &lt;div
+    className={`modal ${<span class="branch-0 cbranch-no" title="branch not covered" >open ? 'modal-show' : '</span>'}`}
+    tabIndex="-1"
+    role="dialog"
+    onClick={(<span class="fstat-no" title="function not covered" >evt) =&gt; { if (evt.target === evt.currentTarget) close(); }}</span>
+  &gt;
+    &lt;div className="modal-dialog" role="document"&gt;
+      &lt;div className="modal-content"&gt;
+        &lt;div className="modal-header"&gt;
+          &lt;button type="button" className="btn-close" aria-label="Close"
+            onClick={close}
+          /&gt;
+        &lt;/div&gt;
+        &lt;div className="modal-body"&gt;
+          {children}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 );
 &nbsp;
@@ -151,11 +151,7 @@ export default Modal;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-                at 2022-12-07T06:56:47.214Z
-=======
-                at 2022-12-07T08:14:27.338Z
->>>>>>> ea556e93a34ac7b648d2366c352f96ef13ceae47
+                at 2022-12-07T20:30:36.069Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
