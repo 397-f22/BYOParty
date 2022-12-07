@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { useDbUpdate, useAuthState } from "../../utilities/firebase";
-import JoinEventForm from '../JoinEventForm/JoinEventForm';
 import './EventDetails.css';
 import Modal from '../Modal/Modal';
-import AddEventModal from '../AddEventModal/AddEventForm';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 

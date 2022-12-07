@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.77% </span>
+                <span class="strong">70.58% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/18</span>
+                <span class='fraction'>12/17</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">50% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.77% </span>
+                <span class="strong">70.58% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/18</span>
+                <span class='fraction'>12/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -79,40 +79,37 @@
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import EventDetails from "../EventDetails/EventDetails";
 &nbsp;
-const EventList = (<span class="fstat-no" title="function not covered" >{uid, userData, data}) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    console.log(userData)</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div&gt;</span>
-<span class="cstat-no" title="statement not covered" >            {userData.eventsAttended? Object.entries(userData.eventsAttended).map(([eventId, val]) =&gt; </span>
+const EventList = ({uid, userData, data}) =&gt; {
+    return (
+        &lt;div&gt;
+            {userData.<span class="branch-0 cbranch-no" title="branch not covered" >eventsAttended? Object.entries(userData.eventsAttended).map(([eventId, val]) =&gt; </span>
 <span class="cstat-no" title="statement not covered" >                &lt;nav&gt;</span>
-<span class="cstat-no" title="statement not covered" >                    </span>
 <span class="cstat-no" title="statement not covered" >                    &lt;a href={data[eventId].details.hostId == uid? `/host/${eventId}`: `/join/${eventId}`} className=" text-decoration-none"&gt;</span>
+<span class="cstat-no" title="statement not covered" >                        &lt;h1&gt;{data[eventId].details.title}&lt;/h1&gt;</span>
 <span class="cstat-no" title="statement not covered" >                        &lt;EventDetails details={data[eventId].details} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                    &lt;/a&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;/nav&gt;) : &lt;&gt;&lt;/&gt;}</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >    )</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+                &lt;/nav&gt;) : &lt;&gt;&lt;/&gt;}
+        &lt;/div&gt;
+    )
+}
 &nbsp;
 export default EventList;</pre></td></tr></table></pre>
 
@@ -121,7 +118,11 @@ export default EventList;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2022-12-07T06:56:47.214Z
+=======
+                at 2022-12-07T08:14:27.338Z
+>>>>>>> ea556e93a34ac7b648d2366c352f96ef13ceae47
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -25,109 +25,6 @@
         }
       }
     },
-    "1342": {
-      "details": {
-        "host": "Shalom Alarape",
-        "hostId": "Bf4ZPXTGfXcnIcca5UvfVY9YDjX2",
-        "time": "2022-12-22T21:40",
-        "title": "Slumber Party"
-      },
-      "needed": {
-        "cookies": {
-          "quantity": "3",
-          "selected": false,
-          "units": "dozen"
-        },
-        "plates": {
-          "quantity": "3",
-          "selected": false,
-          "units": "pack"
-        }
-      }
-    },
-    "3312": {
-      "details": {
-        "host": "me",
-        "hostId": "yRaH1WIrGvTd1UJ2ZZr4Gkv3hnm2",
-        "time": "2022-12-06T00:18",
-        "title": "sda"
-      }
-    },
-    "4122": {
-      "details": {
-        "host": "katrina",
-        "hostId": "1TmwpYr8okUAhTGHo0eGa0obkYZ2",
-        "time": "2022-12-09T15:29",
-        "title": "birthday"
-      }
-    },
-    "6075": {
-      "details": {
-        "host": "Lucille Dolittle",
-        "hostId": "eFRSu0LzLph4ArPxBejFbLRuNAS2",
-        "time": "2022-12-16T18:00",
-        "title": "Study Fest"
-      },
-      "needed": {
-        "balloons": {
-          "quantity": "12",
-          "selected": false,
-          "units": "packs"
-        },
-        "chips": {
-          "quantity": "5",
-          "selected": false,
-          "units": "bags"
-        },
-        "cupcakes": {
-          "quantity": "36",
-          "selected": false,
-          "units": ""
-        },
-        "cups": {
-          "quantity": "50",
-          "selected": false,
-          "units": ""
-        },
-        "homework": {
-          "quantity": "20",
-          "selected": false,
-          "units": "sheets"
-        }
-      }
-    },
-    "6523": {
-      "details": {
-        "host": "TGS",
-        "hostId": "yRaH1WIrGvTd1UJ2ZZr4Gkv3hnm2",
-        "time": "2022-12-02T18:39",
-        "title": "capstone show"
-      }
-    },
-    "6791": {
-      "details": {
-        "host": " ",
-        "hostId": "Mk8gSsztEnaoz1JeiiyNlnEgRS93",
-        "time": "",
-        "title": " "
-      }
-    },
-    "6966": {
-      "details": {
-        "host": "Kris Kringle",
-        "hostId": "1TmwpYr8okUAhTGHo0eGa0obkYZ2",
-        "time": "2022-12-09T18:30",
-        "title": "Winter Quarter Bash"
-      }
-    },
-    "8125": {
-      "details": {
-        "host": "Shalom Alarape",
-        "hostId": "Bf4ZPXTGfXcnIcca5UvfVY9YDjX2",
-        "time": "2022-12-03T19:00",
-        "title": "Party"
-      }
-    },
     "8164": {
       "details": {
         "host": "Wednesday Adams",
@@ -147,21 +44,6 @@
           "units": "packs"
         }
       }
-    },
-    "0001": {
-      "details": {
-        "host": "katrina baniak",
-        "hostId": "NNisA769WOZqNquUIE3Eq7b9klB3",
-        "time": "1729-01-12T00:17",
-        "title": "rager on ridge and noyes!"
-      },
-      "needed": {
-        "100 year old eggs": {
-          "quantity": "10",
-          "selected": false,
-          "units": "centimeters"
-        }
-      }
     }
   },
   "users": {
@@ -169,45 +51,6 @@
       "eventsAttended": {
         "1234": true,
         "8164": true
-      }
-    },
-    "2": {
-      "eventsAttended": {
-        "6966": true
-      }
-    },
-    "1TmwpYr8okUAhTGHo0eGa0obkYZ2": {
-      "eventsAttended": {
-        "1234": true,
-        "4122": true,
-        "6075": true,
-        "8164": true
-      }
-    },
-    "Bf4ZPXTGfXcnIcca5UvfVY9YDjX2": {
-      "eventsAttended": {
-        "1234": true,
-        "1342": true
-      }
-    },
-    "Mk8gSsztEnaoz1JeiiyNlnEgRS93": {
-      "eventsAttended": {
-        "6791": true
-      }
-    },
-    "NNisA769WOZqNquUIE3Eq7b9klB3": {
-      "eventsAttended": {
-        "0001": true
-      }
-    },
-    "eFRSu0LzLph4ArPxBejFbLRuNAS2": {
-      "eventsAttended": {
-        "6075": true
-      }
-    },
-    "yVY9CJReYbhXoLNSzuxvPndvdtA2": {
-      "eventsAttended": {
-        "1234": true
       }
     }
   }
