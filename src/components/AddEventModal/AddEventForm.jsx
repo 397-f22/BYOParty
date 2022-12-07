@@ -1,37 +1,47 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useDbUpdate, useAuthState } from '../../utilities/firebase';
-
-
-const cb = (e, update, navigate, user) => {
-    e.preventDefault();
-
-    let title = document.getElementById('eventTitle').value;
-    let host = document.getElementById('eventHost').value;
-    let time = document.getElementById('eventTime').value;
-
-    let eventcode = ("000" + (Math.random() * 9999)).slice(-4);
-
-    console.log(eventcode);
-
-    var newEvent = {
-        [eventcode]: {
-            details: {
-                host: host,
-                time: time,
-                title: title,
-                hostId: user.uid
-            },
-        }
-    }
-    update(newEvent)
-
-    navigate(`host/${eventcode}/`);
-};
+import { useState } from 'react';
 
 function AddEventModal() {
     const [user] = useAuthState();
     const navigate = useNavigate();
     const [update, result] = useDbUpdate(`/events/`);
+    const uid = user?.uid ? user.uid : "1";
+    const [eventUpdate, eventResult] = useDbUpdate(`/users/${uid}/eventsAttended`);
+    const [validData, setValidData] = useState('');
+    let eventcode = ("000" + (Math.random() * 9999)).slice(-4);
+
+
+    const cb = (e, update, navigate, user) => {
+        e.preventDefault();
+    
+        let title = document.getElementById('eventTitle').value;
+        let host = document.getElementById('eventHost').value;
+        let time = document.getElementById('eventTime').value;
+        if (title == "" || host == "" || time == "") {
+            setValidData("data not valid");
+            return;
+        }
+    
+        var newEvent = {
+            [eventcode]: {
+                details: {
+                    host: host,
+                    time: time,
+                    title: title,
+                    hostId: user.uid
+                },
+            }
+        }
+        update(newEvent)
+    
+        var newEvent = {
+            [eventcode] : true
+          }
+        eventUpdate(newEvent);
+    
+        navigate(`host/${eventcode}/`);
+    };
 
     return (
         <form>
@@ -48,7 +58,8 @@ function AddEventModal() {
                 <label htmlFor="eventTime">Time</label>
                 <input type="datetime-local" className="form-control" id="eventTime" placeholder="Enter time" />
             </div>
-            <button className="btn btn-primary" onClick={e => cb(e, update, navigate, user)}>Submit</button>
+            <button data-testid="submit-button" className="btn btn-primary" onClick={e => cb(e, update, navigate, user)}>Submit</button>
+            <div>{validData}</div>
         </form>
     )
 }

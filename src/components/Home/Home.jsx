@@ -14,7 +14,8 @@ const Home = ({user}) => {
     const closeModal = () => setOpen(false);
 
     const [popJoin, setPopJoin] = useState(false);
-    const uid = user?.uid ? user.uid : "1";
+    const uid = user?.uid ? user.uid : null;
+    
     // right now assuming user already logged in
     const [userData, userError] = useDbData(`/users/${uid}`);
     const [data, error] = useDbData("/events/");
@@ -26,6 +27,7 @@ const Home = ({user}) => {
 	if (data === undefined) return <h1>Loading data...</h1>;
 	if (!data) return <h1>No data found</h1>;
 
+    console.log(userData)
     return (
         <div className='home-wrapper'>
 
