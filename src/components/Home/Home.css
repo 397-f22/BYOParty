@@ -1,0 +1,62 @@
+.home-wrapper{
+    text-align: center;
+}
+
+.home-wrapper > h3 {
+    font-size: 25px;
+    font-style: italic;
+
+    margin-top: 20px;
+
+    color: #1969a6;
+}
+
+
+.button-wrapper {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    margin: 30px;
+    gap: 30px;
+}
+
+.button-wrapper > .btn {
+    
+    width: 100%;
+    text-align: center;
+   
+    padding: 20px;
+
+    border-radius: 16px;
+    border: #1969a6 solid 5px;
+    
+    font-family: 'Paytone One', sans-serif;
+    font-size: 30px;
+}
+
+.btn-add {
+    background-color: #ace8f6;
+    color: #1969a6;
+}
+.btn-join {
+    background-color: #ace8f6;
+    color: #1969a6;
+}
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
