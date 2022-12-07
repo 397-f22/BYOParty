@@ -1,10 +1,13 @@
-import {describe, expect, it, test, vi, beforeEach} from 'vitest';
+import {describe, expect, test} from 'vitest';
 import {fireEvent, render, screen} from '@testing-library/react';
-import App from '../../App';
-import { useData, useUserState }from '../../utilities/firebase';
+import EventDetails from './EventDetails';
+import { useAuthState } from '../../utilities/firebase';
+import {BrowserRouter,  Routes, Route } from 'react-router-dom';
+import {logRoles} from '@testing-library/dom'
 
-const mockDataBase = {
-    "events": {
+describe('EventList', () => {
+  const user = {uid: '1'};
+  const events = {
       "1234": {
         "details": {
           "host": "Susan Saroza",
@@ -30,72 +33,61 @@ const mockDataBase = {
           }
         }
       },
-      "1342": {
+      "8164": {
         "details": {
-          "host": "Shalom Alarape",
-          "hostId": "Bf4ZPXTGfXcnIcca5UvfVY9YDjX2",
-          "time": "2022-12-22T21:40",
-          "title": "Slumber Party"
+          "host": "Wednesday Adams",
+          "hostId": "1TmwpYr8okUAhTGHo0eGa0obkYZ2",
+          "time": "2022-11-30T23:11",
+          "title": "Halloween Party"
         },
         "needed": {
-          "cookies": {
-            "quantity": "3",
+          "cups": {
+            "quantity": "12",
             "selected": false,
-            "units": "dozen"
+            "units": ""
           },
-          "plates": {
-            "quantity": "3",
+          "forks": {
+            "quantity": "20",
             "selected": false,
-            "units": "pack"
+            "units": "packs"
           }
         }
-      },
-    },
-    "users": {
+      }
+    }
+  
+    const users = {
       "1": {
         "eventsAttended": {
           "1234": true,
           "8164": true
         }
-      },
-      "2": {
-        "eventsAttended": {
-          "6966": true
-        }
-      },
-      "Bf4ZPXTGfXcnIcca5UvfVY9YDjX2": {
-        "eventsAttended": {
-          "1234": true,
-          "1342": true
-        }
-      },
-      "Mk8gSsztEnaoz1JeiiyNlnEgRS93": {
-        "eventsAttended": {
-          "6791": true
-        }
-      },
+      }
     }
-};
 
-// vi.mock('../../utilities/firebase');
+  it("Home page will show a list of events for the user", async () => {
+    await render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={ <EventDetails details={events['1234'].details} eventId='1234' needed={events['1234'].needed} />} />
+        </Routes>
+      </BrowserRouter>
+    );
 
-// beforeEach(()=>{
-//     useData.mockReturnValue([mockDataBase, false, null]);   
-//     useUserState.mockReturnValue(null);
-// })
+    await screen.getByText('Housewarming');
+    await screen.getByText('Hosted by you');
 
-describe('launching', () =>{
-    it('landing page', async ()=>{
-      render(<App/>);
-      await screen.findByText(/BYOParty/);
-    });
-})
-describe('Going to existing event ', () =>{
-    it('main page', async ()=>{
-        render(<App/>);
-        //const button = screen.queryByTestId("addEvent");
-        const button2 = screen.findByText(/Add Event/);
-        //button2.click();
-        console.log(button2)
-    });
-})
+    const editButton = screen.getByText('Edit');
+    await fireEvent.click(editButton);
+
+    const titleChange = screen.getByRole('eventTitle', { name: /title-info/i })
+    const test = screen.getByLabelText('title-info');
+    console.log(titleChange)
+    await fireEvent.change(titleChange, { target: { value: 'My Party' } });
+    expect(titleChange.value).toBe('My Party');
+
+    const submitButton = screen.getByRole('button', { name: /Submit/i })
+    await fireEvent.click(submitButton);;
+    
+    //const checking = screen.getByText('My Party');  
+  });
+});

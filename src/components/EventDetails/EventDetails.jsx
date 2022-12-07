@@ -40,7 +40,7 @@ const EventDetails = ({ details, eventId, needed, home }) => {
                 <h1>Edit Event</h1>
                 <div className="form-group">
                     <label htmlFor="eventTitle">Title</label>
-                    <input type="text" className="form-control" id="eventTitle" placeholder={details.title} />
+                    <input role="eventTitle" aria-label="title-info" type="text" className="form-control" data-testid="eventTitle" id="eventTitle" placeholder={details.title} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="eventHost">Host</label>
@@ -50,7 +50,7 @@ const EventDetails = ({ details, eventId, needed, home }) => {
                     <label htmlFor="eventTime">Time</label>
                     <input type="datetime-local" className="form-control" id="eventTime" placeholder={details.time} />
                 </div>
-                <button className="btn btn-primary" onClick={e => cb(e, update, navigate, user)}>Submit</button>
+                <button data-testid="submit-button" className="btn btn-primary" onClick={e => cb(e, update, navigate, user)}>Submit</button>
             </form>
         )
     }
@@ -67,7 +67,7 @@ const EventDetails = ({ details, eventId, needed, home }) => {
                     <p>{date.toLocaleDateString()} at {date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}
                         :{(date.getMinutes()<10?'0':'') + date.getMinutes()} {date.getHours() >= 12 && date.getHours() != 24 ? "PM" : "AM"}</p>
                 </div>
-                {!home && details.hostId == uid ? <button className="btn btn-primary" onClick={() => setOpenModal(true)}>Edit</button> : <></>}
+                {!home && details.hostId == uid ? <button className="btn btn-primary" aria-label="edit-button" id = "edit-button" data-testid="edit-button"onClick={() => setOpenModal(true)}>Edit</button> : <></>}
             </div>
 
             <Modal open={openModal} close={() => setOpenModal(false)}>
