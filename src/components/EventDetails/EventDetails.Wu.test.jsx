@@ -1,8 +1,8 @@
 import {describe, expect, test} from 'vitest';
 import {render, screen} from '@testing-library/react';
-import EventList from './EventList';
+import EventDetails from './EventDetails';
 import { useAuthState } from '../../utilities/firebase';
-
+import {BrowserRouter,  Routes, Route } from 'react-router-dom';
 
 describe('EventList', () => {
   const user = {uid: '1'};
@@ -65,9 +65,14 @@ describe('EventList', () => {
 
   it("Home page will show a list of events for the user", async () => {
     await render(
-      <EventList uid={user.uid} userData={users} data={events} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={ <EventDetails details={events['1234'].details} eventId='1234' needed={events['1234'].needed} />} />
+        </Routes>
+      </BrowserRouter>
     );
-    // await screen.getByText('Halloween Party');
+    await screen.getByText('Housewarming');
+    await screen.getByText('Hosted by you');
   });
 
 });
