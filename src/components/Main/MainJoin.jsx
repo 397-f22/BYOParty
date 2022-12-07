@@ -19,7 +19,7 @@ const MainJoin = ({eventId, user}) => {
 
     return (
         <div>
-            <EventDetails details={data.details}></EventDetails>
+            <EventDetails details={data.details} home={false}></EventDetails>
             <ItemList user={user} initItems={data.needed}  ></ItemList>
             { data.details.hostId.toString() === uid ?  <AddItems eventId={eventId}/> : null }
         </div>

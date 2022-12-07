@@ -32,19 +32,19 @@ const AddItems = ({eventId}) => {
     }
 
     return (
-        <div>
+        <div className="add-items-form">
             <h1>Add Items</h1>
-            <form class="form">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="Item name" onChange={onChangeItem} placeholder="Enter item name" />
+            <form className="form">
+                <div className="form-group">
+                    <input type="text" className="form-control" id="Item name" onChange={onChangeItem} placeholder="Enter item name" />
                 </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="Unit" onChange={onChangeUnit} placeholder="Enter unit" />
+                <div className="form-group">
+                    <input type="text" className="form-control" id="Unit" onChange={onChangeUnit} placeholder="Enter unit" />
                 </div>
-                <div class="form-group">
-                    <input type="number" class="form-control" id="Quantity" onChange={onChangeQuantity} placeholder="Enter quantity" />
+                <div className="form-group">
+                    <input type="number" className="form-control" id="Quantity" onChange={onChangeQuantity} placeholder="Enter quantity" />
                 </div>
-                <button type="submit" class="btn btn-primary" onClick={onSubmit}>Submit</button>
+                <button type="submit" className="btn btn-primary" onClick={onSubmit}>Submit</button>
             </form>
         </div>
     )

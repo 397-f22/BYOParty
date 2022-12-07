@@ -19,7 +19,7 @@ const MainHost = ({eventId, user}) => {
     return data.details.hostId.toString() === uid ? 
     (
         <div>
-            <EventDetails details={data.details} eventId={eventId} needed={data.needed}></EventDetails>
+            <EventDetails details={data.details} eventId={eventId} needed={data.needed} home={false}></EventDetails>
             {data.needed? <ItemListHost user={user} initItems={data.needed}/>: null}
             <AddItems eventId={eventId}/>
         </div>

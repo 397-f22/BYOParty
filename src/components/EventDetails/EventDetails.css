@@ -19,17 +19,17 @@ h2 {
     color: #ace8f6;
 }
 
-.event-wrapper > p {
+h3 {
+    color: #5199e1;
+}
+
+
+.event-info > p {
     font-size: 20px;
     color: #ace8f6;
     font-weight: 400;
 }
 
-.event-wrapper-host > p {
-    font-size: 20px;
-    color: #ace8f6;
-    font-weight: 400;
-}
 .event-wrapper-host {
     display: flex;
     flex-direction: column;
@@ -38,7 +38,7 @@ h2 {
     margin: 20px 0px;
     padding: 10px;
 
-    background-color: purple;
+    background-color: #073152;
     border-radius: 16px;
 }
 

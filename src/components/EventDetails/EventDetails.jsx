@@ -7,7 +7,7 @@ import AddEventModal from '../AddEventModal/AddEventForm';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 
-const EventDetails = ({ details, eventId, needed }) => {
+const EventDetails = ({ details, eventId, needed, home }) => {
     const [user] = useAuthState();
     const uid = user?.uid ? user.uid : "1";
     const [openModal, setOpenModal] = useState(false)
@@ -61,16 +61,20 @@ const EventDetails = ({ details, eventId, needed }) => {
     date = new Date(date.toISOString())
 
     return (
-        <div className={details.hostId == uid ? "event-wrapper-host" : "event-wrapper"}>
+        <div>
+            <div className={details.hostId == uid ? "event-wrapper-host" : "event-wrapper"}>
+                <div className="event-info">
+                    <h2>{details.title}</h2>
+                    {details.hostId == uid ? <h3>Hosted by you</h3> : <h3>Hosted by {details.host}</h3>}
+                    <p>{date.toLocaleDateString()} at {date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}
+                        :{(date.getMinutes()<10?'0':'') + date.getMinutes()} {date.getHours() >= 12 && date.getHours() != 24 ? "PM" : "AM"}</p>
+                </div>
+                {!home && details.hostId == uid ? <button className="btn btn-primary" onClick={() => setOpenModal(true)}>Edit</button> : <></>}
+            </div>
 
-            <h2>{details.title}</h2>
-            {details.hostId == uid ? <h3>Hosted by you</h3> : <h3>Hosted by {details.host}</h3>}
-            <p>{date.toLocaleDateString()} at {date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}
-                :{date.getMinutes()} {date.getHours() >= 12 && date.getHours() != 24 ? "PM" : "AM"}</p>
             <Modal open={openModal} close={() => setOpenModal(false)}>
                 <EditEventModal setOpenModal={setOpenModal} details={details} />
             </Modal>
-            <button className="btn btn-primary" onClick={() => setOpenModal(true)}>Edit</button>
         </div>
 
     )
