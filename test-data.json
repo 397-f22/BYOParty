@@ -1,0 +1,57 @@
+{
+  "events": {
+    "1234": {
+      "details": {
+        "host": "Susan Saroza",
+        "hostId": 1,
+        "time": "2022-11-23T20:00",
+        "title": "Housewarming"
+      },
+      "needed": {
+        "cups": {
+          "quantity": 20,
+          "selected": false,
+          "units": "null"
+        },
+        "forks": {
+          "quantity": 30,
+          "selected": false,
+          "units": "null"
+        },
+        "milk": {
+          "quantity": 2,
+          "selected": false,
+          "units": "gallons"
+        }
+      }
+    },
+    "8164": {
+      "details": {
+        "host": "Wednesday Adams",
+        "hostId": "1TmwpYr8okUAhTGHo0eGa0obkYZ2",
+        "time": "2022-11-30T23:11",
+        "title": "Halloween Party"
+      },
+      "needed": {
+        "cups": {
+          "quantity": "12",
+          "selected": false,
+          "units": ""
+        },
+        "forks": {
+          "quantity": "20",
+          "selected": false,
+          "units": "packs"
+        }
+      }
+    }
+  },
+  "users": {
+    "1": {
+      "eventsAttended": {
+        "1234": true,
+        "8164": true
+      }
+    }
+  }
+}
