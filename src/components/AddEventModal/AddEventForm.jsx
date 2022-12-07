@@ -1,6 +1,6 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useDbUpdate, useAuthState } from '../../utilities/firebase';
-
+import { useState } from 'react';
 
 function AddEventModal() {
     const [user] = useAuthState();
@@ -8,6 +8,7 @@ function AddEventModal() {
     const [update, result] = useDbUpdate(`/events/`);
     const uid = user?.uid ? user.uid : "1";
     const [eventUpdate, eventResult] = useDbUpdate(`/users/${uid}/eventsAttended`);
+    const [validData, setValidData] = useState('');
     let eventcode = ("000" + (Math.random() * 9999)).slice(-4);
 
 
@@ -17,7 +18,10 @@ function AddEventModal() {
         let title = document.getElementById('eventTitle').value;
         let host = document.getElementById('eventHost').value;
         let time = document.getElementById('eventTime').value;
-
+        if (title == "" || host == "" || time == "") {
+            setValidData("data not valid");
+            return;
+        }
     
         var newEvent = {
             [eventcode]: {
@@ -41,7 +45,7 @@ function AddEventModal() {
 
     return (
         <form>
-            <h1>Add Event: {eventcode}</h1>
+            <h1>Add Event</h1>
             <div className="form-group">
                 <label htmlFor="eventTitle">Title</label>
                 <input type="text" className="form-control" id="eventTitle" placeholder="Enter title" />
@@ -54,7 +58,8 @@ function AddEventModal() {
                 <label htmlFor="eventTime">Time</label>
                 <input type="datetime-local" className="form-control" id="eventTime" placeholder="Enter time" />
             </div>
-            <button className="btn btn-primary" onClick={e => cb(e, update, navigate, user)}>Submit</button>
+            <button data-testid="submit-button" className="btn btn-primary" onClick={e => cb(e, update, navigate, user)}>Submit</button>
+            <div>{validData}</div>
         </form>
     )
 }

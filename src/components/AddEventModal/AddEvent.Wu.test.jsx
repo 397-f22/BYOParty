@@ -1,10 +1,12 @@
-import { describe, expect, test, it } from 'vitest';
+import { describe, expect, test, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AddEventModal from './AddEventForm';
 
+vi.mock('./AddEventFrom');
+
 describe('AddEventModal', () => {
-  test('should render the AddEventModal component', () => {
+  test('should say data not valid if not valid input', async () => {
     render(
       <BrowserRouter>
         <Routes>
@@ -13,6 +15,10 @@ describe('AddEventModal', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('Add Event')).toBeDefined();
+    const submitButton = screen.getByTestId("submit-button");
+    await fireEvent.click(submitButton);
+    await expect(screen.getByText('data not valid')).toBeDefined();
+
   });
 });
+
