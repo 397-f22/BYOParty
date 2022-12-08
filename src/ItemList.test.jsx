@@ -33,4 +33,35 @@ describe('ItemList tests', () => {
     expect(screen.queryByText(/forks/i)).toBeNull();
   });
 
+  test("When an event guest clicks the save selections button, their selections should be stored.", () => {
+    const items = {
+      "milk": {
+          "quantity": 2,
+          "units": "gallons",
+          "selected": false,
+          "units": null
+      },
+      "cups": {
+          "quantity": 20,
+          "units": null,
+          "selected": false,
+          "units": null
+      },
+      "forks":{
+          "item": "forks",
+          "quantity": 30,
+          "selected": false,
+          "units": null
+      }
+    };
+
+    const user = {uid: 1};
+  render(<ItemList initItems={items} user={user}/>);
+  document.getElementsByClassName("item-card")[0].click();
+  document.getElementsByClassName("save-button")[0].click();
+  document.getElementById("my-list").click();
+  expect(screen.getByText(/milk/i)).toBeDefined();
+  expect(screen.queryByText(/forks/i)).toBeNull();
+});
+
 });
